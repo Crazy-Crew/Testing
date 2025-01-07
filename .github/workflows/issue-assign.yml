@@ -21,6 +21,6 @@ jobs:
       - name: 'Assign Issue / Pull Request'
         uses: pozil/auto-assign-issue@v2
         with:
-          repo-token: ${{ secrets.GH_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           assignees: ryderbelserion
           numOfAssignee: 1
