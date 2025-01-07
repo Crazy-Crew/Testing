@@ -1,6 +1,7 @@
 name: Artifact Upload
 
 on:
+  push:
   pull_request:
     types:
       - opened
