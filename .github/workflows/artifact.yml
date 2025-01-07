@@ -7,6 +7,12 @@ on:
       - reopened
       - synchronize
       - labeled
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log Level'
+        required: false
+        default: 'warning'
 
 jobs:
     runs-on: ubuntu-latest
