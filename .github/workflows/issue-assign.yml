@@ -24,4 +24,3 @@ jobs:
           repo-token: ${{ secrets.GH_TOKEN }}
           assignees: ryderbelserion
           numOfAssignee: 1
-          allowSelfAssign: false
