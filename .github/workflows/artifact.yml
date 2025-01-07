@@ -1,5 +1,3 @@
-# artifact-upload.yml
----
 name: Artifact Upload
 
 on:
@@ -11,11 +9,6 @@ on:
       - labeled
 
 jobs:
-  create-artifact:
-    env:
-      ARTIFACT_NAME: Testing.jar
-      ARTIFACT_PATH: ./builds/
-
     runs-on: ubuntu-latest
 
     steps:
@@ -25,24 +18,23 @@ jobs:
       - name: Validate Gradle Wrapper
         uses: gradle/actions/wrapper-validation@v3
 
-      - name: Set up JDK 21
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 21
-          check-latest: true
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: current
 
-      - name: Assemble
-        run:
-          ./gradlew assemble --stacktrace
+      - name: Build with Gradle
+        run: ./gradlew build
 
       - name: Upload Artifact
         id: upload
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.ARTIFACT_NAME }}
-          path: ${{ env.ARTIFACT_PATH }}${{ env.ARTIFACT_NAME }}
-          if-no-files-found: error
+          name: ${{ github.event.repository.name }} Build
+          path: build/libs
