@@ -1,0 +1,47 @@
+# artifact-upload.yml
+---
+name: Artifact Upload
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  create-artifact:
+    env:
+      ARTIFACT_NAME: Testing.jar
+      ARTIFACT_PATH: ./
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/actions/wrapper-validation@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+          check-latest: true
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Assemble
+        run:
+          ./gradlew assemble --stacktrace
+
+      - name: Upload Artifact
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.ARTIFACT_PATH }}/${{ env.ARTIFACT_NAME }}
+          if-no-files-found: error
