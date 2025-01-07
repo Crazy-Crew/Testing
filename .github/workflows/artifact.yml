@@ -16,6 +16,7 @@ on:
         default: 'warning'
 
 jobs:
+  artifact:
     runs-on: ubuntu-latest
 
     steps:
