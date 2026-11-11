@@ -1,4 +1,4 @@
-name: Build Pull Request
+name: Reply Pull Request
 
 on:
   workflow_run:
@@ -13,7 +13,7 @@ jobs:
   build:
     if: github.repository_owner == 'Crazy-Crew'
 
-    uses: Crazy-Crew/.github/.github/workflows/pr-build.yml@main
+    uses: Crazy-Crew/.github/.github/workflows/pr-reply.yml@main
 
     permissions:
       actions: read
