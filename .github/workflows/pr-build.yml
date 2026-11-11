@@ -15,6 +15,10 @@ jobs:
 
     uses: Crazy-Crew/.github/.github/workflows/pr-build.yml@main
 
+    permissions:
+      actions: read
+      contents: read
+
     secrets:
       app_id: ${{ secrets.APP_ID }}
       app_secret_key: ${{ secrets.APP_SECRET_KEY }}
