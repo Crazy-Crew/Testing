@@ -12,3 +12,6 @@ jobs:
     if: github.repository_owner == 'Crazy-Crew'
 
     uses: Crazy-Crew/.github/.github/workflows/upload.yml@main
+    with:
+      path: "build/libs"
+      label: "build-pr-jar"
