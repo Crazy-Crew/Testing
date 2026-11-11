@@ -6,9 +6,6 @@ on:
     types:
       - completed
 
-permissions:
-  pull-requests: write
-
 jobs:
   build:
     if: github.repository_owner == 'Crazy-Crew'
@@ -18,6 +15,7 @@ jobs:
     permissions:
       actions: read
       contents: read
+      pull-requests: write
 
     secrets:
       app_id: ${{ secrets.APP_ID }}
