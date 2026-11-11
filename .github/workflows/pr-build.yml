@@ -20,6 +20,3 @@ jobs:
       app_secret_key: ${{ secrets.APP_SECRET_KEY }}
       gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
       gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-
-    with:
-      label: "build-pr-jar"
