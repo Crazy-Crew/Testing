@@ -1,0 +1,26 @@
+name: Reply Pull Request
+
+on:
+  workflow_run:
+    workflows: ["Upload Artifact"]
+    types:
+      - completed
+
+permissions:
+  pull-requests: write
+
+jobs:
+  build:
+    if: github.repository_owner == 'Crazy-Crew'
+
+    uses: Crazy-Crew/.github/.github/workflows/pr-reply.yml@main
+
+    permissions:
+      actions: read
+      contents: read
+
+    secrets:
+      app_id: ${{ secrets.APP_ID }}
+      app_secret_key: ${{ secrets.APP_SECRET_KEY }}
+      gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+      gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
