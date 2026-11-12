@@ -12,11 +12,6 @@ jobs:
 
     uses: Crazy-Crew/.github/.github/workflows/pr-reply.yml@main
 
-    permissions:
-      actions: read
-      contents: read
-      pull-requests: write
-
     secrets:
       app_id: ${{ secrets.APP_ID }}
       app_secret_key: ${{ secrets.APP_SECRET_KEY }}
