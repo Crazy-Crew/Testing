@@ -6,18 +6,11 @@ on:
     types:
       - completed
 
-permissions:
-  pull-requests: write
-
 jobs:
   build:
     if: github.repository_owner == 'Crazy-Crew'
 
     uses: Crazy-Crew/.github/.github/workflows/pr-reply.yml@main
-
-    permissions:
-      actions: read
-      contents: read
 
     secrets:
       app_id: ${{ secrets.APP_ID }}
