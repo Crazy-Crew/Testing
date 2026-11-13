@@ -17,4 +17,3 @@ jobs:
     with:
       path: "build/libs"
       label: "build-pr-jar"
-      project: "Testing"
