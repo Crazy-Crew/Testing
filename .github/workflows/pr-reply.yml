@@ -11,8 +11,6 @@ jobs:
     if: github.repository_owner == 'Crazy-Crew'
 
     uses: Crazy-Crew/.github/.github/workflows/pr-reply.yml@main
-    with:
-      project: "Testing"
 
     secrets:
       app_id: ${{ secrets.APP_ID }}
