@@ -3,11 +3,11 @@ name: Issue Assignment
 on:
   issues:
     branches: [ "main" ]
-    types: [opened]
+    types: [ opened ]
 
   pull_request:
     branches: [ "main" ]
-    types: [opened]
+    types: [ opened ]
 
 jobs:
   auto-assign:
